@@ -77,7 +77,7 @@ class NetworkHead(nn.Module):
                             out_features = num_class)
 
     def forward(self, X):
-        return self.fc(F.avg_pool(X, X.size()[2:]))
+        return self.fc(F.avg_pool2d(X, X.size()[2:]))
 
 
 class ResNet(nn.Module):
@@ -141,5 +141,5 @@ def resnet56(num_class):
 if __name__ == '__main__':
     import numpy as np
     model = resnet20(10)
-    x = np.random.randn(3, 32, 32, 3)
+    x = np.random.randn(3, 3, 32, 32)
     model.debug(x)
