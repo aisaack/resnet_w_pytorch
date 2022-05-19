@@ -53,6 +53,7 @@ class NetworkStem(nn.Module):
         name = 'NetworkStem'
     ):
         super().__init__()
+        self.name = name
         self.conv = nn.Conv2d(in_channels = 3,
                                 out_channels = cout,
                                 kernel_size = (3, 3),
@@ -71,6 +72,7 @@ class NetworkHead(nn.Module):
         name = 'NetworkHead'
     ):
         super().__init__()
+        self.name = name
         self.fc = nn.Linear(in_features = cin,
                             out_features = num_class)
 
